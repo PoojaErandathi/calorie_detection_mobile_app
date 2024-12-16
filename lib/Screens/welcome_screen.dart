@@ -1,7 +1,3 @@
-
-import 'package:calorie_detection_mobile_app/Screens/capture_image_page.dart';
-import 'package:calorie_detection_mobile_app/Screens/sign_in_page.dart';
-import 'package:calorie_detection_mobile_app/Screens/sign_up_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -68,14 +64,12 @@ class FoodScannerPage extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(16),
                       child: Image.asset(
-                        'assest/images/food_plate.jpg',
-                       // Replace with your image file name
+                        'assets/images/food_plate.webp', // Use the correct relative path
                         width: 300,
                         height: 200,
                         fit: BoxFit.cover,
                       ),
                     ),
-
                     Positioned(
                       top: 20,
                       left: 20,
@@ -108,41 +102,11 @@ class FoodScannerPage extends StatelessWidget {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'Scan your meals, count calories, and get on track!',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 14, // Slightly larger font size for better visibility
-                    color: Colors.black87, // Darker text color for better readability
-                    fontWeight: FontWeight.w500, // Medium font weight
-                  ),
-                ),
-                Text(
-                  'Take the first step toward a healthier you.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
-            ),
-          ),
-
           Column(
             children: [
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CaptureImagePage()),
-                  );
+                  // Add button action
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
@@ -159,54 +123,7 @@ class FoodScannerPage extends StatelessWidget {
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
-              const SizedBox(height: 16), // Add spacing between buttons
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignUpScreen()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 16,
-                    horizontal: 32,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: const Text(
-                  'Sign Up',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                ),
-              ),
-
-              const SizedBox(height: 16), // Add spacing between buttons
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignInScreen()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 16,
-                    horizontal: 32,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: const Text(
-                  'Sign In',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                ),
-              ),
-              const SizedBox(height: 16), // Add spacing before the disclaimer text
+              const SizedBox(height: 16),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
@@ -215,10 +132,9 @@ class FoodScannerPage extends StatelessWidget {
                   style: TextStyle(fontSize: 12, color: Colors.grey),
                 ),
               ),
-              const SizedBox(height: 20), // Add spacing at the bottom
+              const SizedBox(height: 20),
             ],
           ),
-
         ],
       ),
     );
