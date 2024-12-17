@@ -1,4 +1,3 @@
-
 import 'package:calorie_detection_mobile_app/Screens/capture_image_page.dart';
 import 'package:calorie_detection_mobile_app/Screens/sign_in_page.dart';
 import 'package:calorie_detection_mobile_app/Screens/sign_up_page.dart';
@@ -68,8 +67,7 @@ class FoodScannerPage extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(16),
                       child: Image.asset(
-                        'assest/images/food_plate.jpg',
-                       // Replace with your image file name
+                        'assets/images/welcome_image.jpeg', // Replace with your image file name
                         width: 300,
                         height: 200,
                         fit: BoxFit.cover,

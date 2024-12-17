@@ -1,3 +1,4 @@
+import 'package:calorie_detection_mobile_app/Screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -13,10 +14,24 @@ class _SignInScreenState extends State<SignInScreen> {
 
   void _signIn() {
     if (_formKey.currentState!.validate()) {
-      // Add sign-in logic here
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Signing In...')),
-      );
+      final email = _emailController.text.trim();
+      final password = _passwordController.text.trim();
+
+      // Hardcoded email and password check
+      if (email == "test@example.com" && password == "12345") {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
+      } else {
+        // Show an error if credentials don't match
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Invalid email or password'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     }
   }
 
@@ -34,10 +49,9 @@ class _SignInScreenState extends State<SignInScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Heading
               const Center(
                 child: Text(
-                  'Welcome Back!', // Heading Text
+                  'Welcome Back!',
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -46,7 +60,6 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              // Email Field
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -66,7 +79,6 @@ class _SignInScreenState extends State<SignInScreen> {
                 },
               ),
               const SizedBox(height: 16),
-              // Password Field
               TextFormField(
                 controller: _passwordController,
                 obscureText: true,
@@ -79,14 +91,11 @@ class _SignInScreenState extends State<SignInScreen> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your password';
-                  } else if (value.length < 6) {
-                    return 'Password must be at least 6 characters';
                   }
                   return null;
                 },
               ),
               const SizedBox(height: 24),
-              // Sign-In Button
               Center(
                 child: ElevatedButton(
                   onPressed: _signIn,
@@ -104,11 +113,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              // Sign-Up Redirect
               Center(
                 child: TextButton(
                   onPressed: () {
-                    // Add navigation to Sign Up screen
+                    // Redirect to Sign-Up Screen
                     Navigator.pushNamed(context, '/signup');
                   },
                   child: const Text(
